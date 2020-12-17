@@ -1,21 +1,7 @@
-import renderMap from './mapboxModule.js'
 import { daysEn, monthEn, daysRu, monthRu } from './constants.js'
 
-export async function getCityWeather(city, lang = 'en'){
-    const url = 'https://api.weatherapi.com/v1/forecast.json?key=0214c08aa62441c8be983128201512&q=';
-    const endUrl = '&days=4&lang=';
-    const language = lang;
-    const fullUrl = `${url}${city}${endUrl}${language}`;
-    let response = await fetch(fullUrl);
-    let weather = await response.json();
-    let lng = weather.location.lon;
-    let lat = weather.location.lat;
-    renderMap(lng, lat);
-    console.log(weather)
-    getCurrentWeatherData(weather)
-}
 
-function getCurrentWeatherData(weather){
+export function getCurrentWeatherData(weather){
     const feelsTempC = weather.current.feelslike_c;
     const feelsTempF = weather.current.feelslike_f;
     const tempC = weather.current.temp_c;
@@ -26,31 +12,31 @@ function getCurrentWeatherData(weather){
     const textCondit = weather.current.condition.text;
     const city = weather.location.name;
     const country = weather.location.country;
-    const paramsC = [tempC, wind, icon, city, country, feelsTempC, humidity, textCondit];
-    renderWeather(...paramsC);
+    const paramsC = [tempC, tempF, wind, icon, city, country, feelsTempC, feelsTempF, humidity, textCondit];
+    renderCurrentWeather(...paramsC);
 }
 
-function renderWeather(temperature, wind, icon, city, country, feels, hudimity, condition){
+function renderCurrentWeather(t_c, t_f, wind, icon, city, country, feels_c, feels_f, hudimity, condition){
     let date = new Date();
     let day = date.getDay();
     let month = date.getMonth();
     const main = document.querySelector('.current');
     const weather = document.querySelector('.current_weather')
     const currentDate = document.querySelector('.current_date');
-    const temp = document.querySelectorAll('p')[1]
-    const windText = document.querySelectorAll('p')[2]
-    const hudimityText = document.querySelectorAll('p')[3]
-    const cityText = document.querySelectorAll('p')[4]
-    const textCondit = document.querySelectorAll('p')[0];
+    const tempC = document.querySelector('.current_temp_c')
+    const tempF = document.querySelector('.current_temp_f')
+    const windText = document.querySelector('.current_wind')
+    const hudimityText = document.querySelector('.current_humidity')
+    const cityText = document.querySelector('.current_city')
+    const textCondit = document.querySelector('.current_condit');
     const iconSpan = document.querySelector('.icon');
     currentDate.innerHTML = `${daysEn[day]}, ${date.getDate()} ${monthEn[month]}`
-    main.children[0].currentDate;
-    main.children[1].iconSpan;
     iconSpan.innerHTML = `<img src="${icon}" alt='${condition}' /> `
-    temp.innerHTML = `${temperature}°C | FEELS LIKE: ${feels}°C`;
+    tempC.innerHTML = `${t_c}°C | FEELS LIKE: ${feels_c}°C`;
+    tempF.innerHTML = `${t_f}°F | FEELS LIKE: ${feels_f}°F`;
     windText.innerHTML = `WIND: ${wind} KM/HR`;
     hudimityText.innerHTML = `HUDIMITY: ${hudimity}`;
     cityText.innerText = `${city}, ${country}`;
     textCondit.innerText = `${condition}`;
-    weather.append(textCondit, temp, windText, hudimityText, cityText);
+    weather.append(textCondit, tempC, tempF, windText, hudimityText, cityText);
 }

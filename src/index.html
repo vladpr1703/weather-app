@@ -14,24 +14,54 @@
         <div class='time'><span></span> <span></span> <span></span></div>
         <div id="map"></div>
         <div class='middle_container'>
-            <input class='input_city' type='text' placeholder='ENTER YOUR CITY'>
+            <label>
+                <input class='input_city' type='text' placeholder='ENTER YOUR CITY' title="Please enter your city in English" pattern='[a-zA-Z]' >
+            </label>
             <div class='current'>
                 <div class='current_date'></div>
                 <span class='icon'></span>
                 <div class='current_weather'>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
+                    <p class='current_condit'></p>
+                    <p class='current_temp_c'></p>
+                    <p class='current_temp_f hide'></p>
+                    <p class='current_wind'></p>
+                    <p class='current_humidity'></p>
+                    <p class='current_city'></p>
                 </div>
             </div>
             <div class='forecast'>
-                <div></div>
-                <div></div>
+                <div class='tomorrow'>
+                    <p class='tomorrow_date'></p>
+                    <span class='tomorrow_icon'></span>
+                    <p class='tomorrow_condit'></p>
+                    <p class='tomorrow_avgtemp_c'></p>
+                    <p class='tomorrow_avgtemp_f hide'></p>
+                </div>
+                <div class='aftertomorrow'>
+                    <p class='aftertomorrow_date'></p>
+                    <span class='aftertomorrow_icon'></span>
+                    <p class='aftertomorrow_condit'></p>
+                    <p class='aftertomorrow_avgtemp_c'></p>
+                    <p class='aftertomorrow_avgtemp_f hide'></p>
+                </div>
             </div>
         </div>
-        <div class='right_container'></div>
+        <div class='right_container'>
+            <div class='control_block'>
+                <div class='descriptions'>
+                    <p>Change 
+                        <br>wallaper</p>
+                    <p>°F / °C</p>
+                    <p>Change 
+                        <br>language</p>
+                </div>
+                <div class='buttons'>
+                    <button class='change_wallaper'></button>
+                    <button class='change_temp'></button>
+                    <button></button>
+                </div>
+            </div>
+        </div>
     </div>
     <script src='index.js' type='module'></script>
 </body>
