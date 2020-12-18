@@ -8,6 +8,7 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class='main'>
@@ -15,30 +16,36 @@
         <div id="map"></div>
         <div class='middle_container'>
             <label>
-                <input class='input_city' type='text' placeholder='ENTER YOUR CITY' title="Please enter your city in English" pattern='[a-zA-Z]' >
+                <input class='input_city' type='text' placeholder='ENTER YOUR CITY' title='Please enter your city in English'>
             </label>
             <div class='current'>
-                <div class='current_date'></div>
+                <div class='current_date_en'></div>
+                <div class='current_date_ru hide'></div>
                 <span class='icon'></span>
                 <div class='current_weather'>
                     <p class='current_condit'></p>
-                    <p class='current_temp_c'></p>
-                    <p class='current_temp_f hide'></p>
-                    <p class='current_wind'></p>
-                    <p class='current_humidity'></p>
+                    <div class='current_t'>
+                        <span class='current_temp_c'></span><span class='current_temp_f hide'></span><span class='feels_text_en'>FEELS LIKE: </span><span class='feels_text_ru hide'>ОЩУЩАЕТСЯ: </span><span class='feels_temp_c'></span><span class='feels_temp_f hide'></span>
+                    </div>
+                    <p class='current_wind_en'></p>
+                    <p class='current_wind_ru hide'></p>
+                    <p class='current_humidity_en'></p>
+                    <p class='current_humidity_ru hide'></p>
                     <p class='current_city'></p>
                 </div>
             </div>
             <div class='forecast'>
                 <div class='tomorrow'>
-                    <p class='tomorrow_date'></p>
+                    <p class='tomorrow_date_en'></p>
+                    <p class='tomorrow_date_ru hide'></p>
                     <span class='tomorrow_icon'></span>
                     <p class='tomorrow_condit'></p>
                     <p class='tomorrow_avgtemp_c'></p>
                     <p class='tomorrow_avgtemp_f hide'></p>
                 </div>
                 <div class='aftertomorrow'>
-                    <p class='aftertomorrow_date'></p>
+                    <p class='aftertomorrow_date_en'></p>
+                    <p class='aftertomorrow_date_ru hide'></p>
                     <span class='aftertomorrow_icon'></span>
                     <p class='aftertomorrow_condit'></p>
                     <p class='aftertomorrow_avgtemp_c'></p>
@@ -49,16 +56,26 @@
         <div class='right_container'>
             <div class='control_block'>
                 <div class='descriptions'>
-                    <p>Change 
+                    <div class='description_one'>
+                        <p class='one_en'>Change 
                         <br>wallaper</p>
-                    <p>°F / °C</p>
-                    <p>Change 
+                        <p class='one_ru hide'>Сменить 
+                            <br>фон</p>
+                    </div>
+                    <div class='description_two'>
+                        <p>°F / °C</p>
+                    </div>
+                    <div class='description_three'>
+                        <p class='three_en'>Change 
                         <br>language</p>
+                        <p class='three_ru hide'>Сменить 
+                        <br>язык</p>
+                    </div>
                 </div>
                 <div class='buttons'>
                     <button class='change_wallaper'></button>
                     <button class='change_temp'></button>
-                    <button></button>
+                    <button class='change_lang'></button>
                 </div>
             </div>
         </div>

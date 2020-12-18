@@ -15,7 +15,8 @@
     width: 200px;
     border-radius: 15px;
     outline: none;
-    border: 1px solid rgba(192, 192, 192, 0.6);
+    border: 2px solid rgba(134, 134, 134, 1);
+    box-shadow: 0px -2px 5px black;
 }
 
 .time {
@@ -52,13 +53,9 @@
     outline-offset: 0;
 }
 
-div span {
-    font-size: 20px;
-}
-
 .current {
     width: 180px;
-    height: 270px;
+    height: 280px;
     background: linear-gradient(180deg, rgba(192, 192, 192, 0.6), rgba(0, 0, 0, 0.8));
     box-shadow: 0px 0px 8px black;
     border: 1px solid black;
@@ -66,31 +63,93 @@ div span {
     margin: 30px auto;
     text-align: center;
     color: white;
-    font: 20px/10px 'Barlow Condensed', sans-serif;
+    font: 14px 'Montserrat', sans-serif;
+
 }
 
-.current span {
-    width: 90px;
-    text-shadow: 15px 0px 15px white;
+.current p {
+    margin-block-start: 0.3em;
+    margin-block-end: 0.6em;
 }
 
-.current_date {
-    margin-top: 15px;
+.current_date_en, .current_date_ru {
+    margin-top: 10px;
 }
 
 .forecast {
     width: 350px;
-    height: 180px;
+    height: 220px;
     display: flex;
     justify-content: space-around;
-
 }
 
 .forecast div {
     width: 150px;
-    height: 180px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background: linear-gradient(180deg, rgba(192, 192, 192, 0.6), rgba(0, 0, 0, 0.8));
     box-shadow: 0px 0px 8px black;
     border: 1px solid black;
     border-radius: 20px;
+    font: 16px 'Montserrat', sans-serif;
+    text-align: center;
+    color: white;  
+}
+
+.forecast p, .descriptions p {
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+}
+
+.right_container{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.control_block {
+    background-color: rgba(187, 187, 187, 0.3);
+    box-shadow: 0px 0px 5px black;
+    width: 180px;
+    height: 140px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.descriptions, .buttons {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 15px;
+}
+
+.descriptions p {
+    font: bold 14px 'Montserrat', sans-serif;
+}
+
+.buttons button {
+    width: 25px;
+    height: 25px;
+    border: 1px solid rgb(41, 41, 41);
+    border-radius: 25px;
+    background-color: rgb(110, 110, 110);
+    outline: none;
+}
+
+.buttons button:hover {
+    box-shadow: 0px 0px 5px black;
+}
+
+.hide {
+    display: none;
+}
+
+.current_condit, .tomorrow_condit, .aftertomorrow_condit {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
 }

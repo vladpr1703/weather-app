@@ -20,23 +20,35 @@ function renderCurrentWeather(t_c, t_f, wind, icon, city, country, feels_c, feel
     let date = new Date();
     let day = date.getDay();
     let month = date.getMonth();
-    const main = document.querySelector('.current');
-    const weather = document.querySelector('.current_weather')
-    const currentDate = document.querySelector('.current_date');
-    const tempC = document.querySelector('.current_temp_c')
-    const tempF = document.querySelector('.current_temp_f')
-    const windText = document.querySelector('.current_wind')
-    const hudimityText = document.querySelector('.current_humidity')
+    const currentDateEn = document.querySelector('.current_date_en');
+    const currentDateRu = document.querySelector('.current_date_ru');
+    const divTemp = document.querySelector('.current_t');
+    const currTempC = document.querySelector('.current_temp_c')
+    const currTempF = document.querySelector('.current_temp_f')
+    const feelTempC = document.querySelector('.feels_temp_c')
+    const feelTempF = document.querySelector('.feels_temp_f')
+    const feelsEn = document.querySelector('.feels_text_en');
+    console.log(feelsEn)
+    const feelsRu = document.querySelector('.feels_text_ru')
+    const windTextEn = document.querySelector('.current_wind_en')
+    const windTextRu = document.querySelector('.current_wind_ru')
+    const hudimityTextEn = document.querySelector('.current_humidity_en')
+    const hudimityTextRu = document.querySelector('.current_humidity_ru')
     const cityText = document.querySelector('.current_city')
     const textCondit = document.querySelector('.current_condit');
     const iconSpan = document.querySelector('.icon');
-    currentDate.innerHTML = `${daysEn[day]}, ${date.getDate()} ${monthEn[month]}`
+    currentDateEn.innerHTML = `${daysEn[day]}, ${date.getDate()} ${monthEn[month]}`
+    currentDateRu.innerHTML = `${daysRu[day]}, ${date.getDate()} ${monthRu[month]}`
     iconSpan.innerHTML = `<img src="${icon}" alt='${condition}' /> `
-    tempC.innerHTML = `${t_c}°C | FEELS LIKE: ${feels_c}°C`;
-    tempF.innerHTML = `${t_f}°F | FEELS LIKE: ${feels_f}°F`;
-    windText.innerHTML = `WIND: ${wind} KM/HR`;
-    hudimityText.innerHTML = `HUDIMITY: ${hudimity}`;
+    currTempC.innerHTML = `${t_c}°C | `;
+    feelTempC.innerHTML = `${feels_c}°C`;
+    currTempF.innerHTML = `${t_f}°F | `;
+    feelTempF.innerHTML = `${feels_f}°F`;
+    divTemp.append(currTempF,currTempF, feelsEn, feelsRu, feelTempC, feelTempF)
+    windTextEn.innerHTML = `WIND: ${wind} KM/HR`;
+    windTextRu.innerHTML = `ВЕТЕР: ${wind} KМ/Ч`;
+    hudimityTextEn.innerHTML = `HUDIMITY: ${hudimity}`;
+    hudimityTextRu.innerHTML = `ВЛАЖНОСТЬ: ${hudimity}`;
     cityText.innerText = `${city}, ${country}`;
     textCondit.innerText = `${condition}`;
-    weather.append(textCondit, tempC, tempF, windText, hudimityText, cityText);
 }
