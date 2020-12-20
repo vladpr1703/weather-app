@@ -22,10 +22,11 @@ export function changeLang (city) {
         changeLangTextRu, changeLangTextEn];
     if(tmrwDateRu.classList.contains('hide')){
         getCityWeather(city, 'ru');
+        localStorage.setItem('key_lang', 'ru')
     }
     else {
         getCityWeather(city, 'en');
+        localStorage.setItem('key_lang', 'en')
     }
     list.forEach(el => el.classList.toggle('hide'))
-    tmrwDateRu.classList.contains('hide') ? localStorage.setItem('key_lang', 'en') : localStorage.setItem('key_lang', 'ru')  
 }

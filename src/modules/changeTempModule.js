@@ -9,10 +9,5 @@ export function changeTemp(){
     const aftTmrwTempF  = document.querySelector('.aftertomorrow_avgtemp_f')
     const tempList = [currTempC, currTempF, feelTempC, feelTempF, tmrwTempC, tmrwTempF, aftTmrwTempF, aftTmrwTempC];
     tempList.forEach(el => el.classList.toggle('hide'));
-    if(currTempF.classList.contains('hide')){
-        localStorage.setItem('key_temp', 'C')
-    }
-    else {
-        localStorage.setItem('key_temp', 'F')
-    }
+    currTempF.classList.contains('hide') ? localStorage.setItem('key_temp', 'C') : localStorage.setItem('key_temp', 'F');
 }

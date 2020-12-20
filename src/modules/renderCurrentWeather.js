@@ -28,7 +28,6 @@ function renderCurrentWeather(t_c, t_f, wind, icon, city, country, feels_c, feel
     const feelTempC = document.querySelector('.feels_temp_c')
     const feelTempF = document.querySelector('.feels_temp_f')
     const feelsEn = document.querySelector('.feels_text_en');
-    console.log(feelsEn)
     const feelsRu = document.querySelector('.feels_text_ru')
     const windTextEn = document.querySelector('.current_wind_en')
     const windTextRu = document.querySelector('.current_wind_ru')
