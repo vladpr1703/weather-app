@@ -15,8 +15,8 @@ setStartCity();
 clockStart();
 
 async function setStartCity(){
-    let response = await fetch('https://ipinfo.io/json?token=c8cda7f4b9faf8');
-    let data = await response.json();
+    const response = await fetch('https://ipinfo.io/json?token=c8cda7f4b9faf8');
+    const data = await response.json();
     city = `${data.city},${data.country}`
     getCityWeather(city);
     function checkStorage() {
@@ -31,7 +31,7 @@ async function setStartCity(){
 }
 
 inputCity.addEventListener('change', (e) => {
-    let regex = /\w/g;
+    const regex = /\w/g;
     const lang = localStorage.getItem('key_lang')
     if(regex.test(e.target.value)) {
     const city = e.target.value;

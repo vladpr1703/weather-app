@@ -8,10 +8,10 @@ export async function getCityWeather(city, lang = 'en'){
     const endUrl = '&days=4&lang=';
     const language = lang;
     const fullUrl = `${url}${city}${endUrl}${language}`;
-    let response = await fetch(fullUrl);
-    let weather = await response.json();
-    let lng = weather.location.lon;
-    let lat = weather.location.lat;
+    const response = await fetch(fullUrl);
+    const weather = await response.json();
+    const lng = weather.location.lon;
+    const lat = weather.location.lat;
     renderMap(lng, lat);
     getCurrentWeatherData(weather)
     getTomorrowWeatherData(weather);
